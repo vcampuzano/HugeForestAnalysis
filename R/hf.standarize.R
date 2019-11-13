@@ -5,7 +5,7 @@ function(section, projcrs, path=".", chunk_size=512, cleanSrc=FALSE, showMsg=FAL
   ctg=readLAScatalog(fld)
   opt_chunk_size(ctg)<-chunk_size
   opt_output_files(ctg)<-paste(fld, "std", paste(section, "{ID}","{XLEFT}-{YBOTTOM}", sep="_"), sep="/")
-  projection(ctg)<-utm16
+  projection(ctg)<-projcrs
   nCores=as.integer(availableCores()/get_lidr_threads())
   if(showMsg) message(paste("  Multisession en", nCores, "nucleos con", get_lidr_threads(), "hilos"))
   plan(multisession, workers=nCores)
