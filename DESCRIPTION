@@ -4,7 +4,7 @@ Title: Procesador de catálogos LiDAR grandes con LidR
 Version: 1.0
 Date: 2019-11-12
 Author: Víctor Manuel Campuzano Pineda
-Maintainer: victorcpkc@gmail.com
+Maintainer: Víctor M. Campuzano <victorcpkc@gmail.com>
 Import: lidR, rlas, future, smoothr, rgdal, rgeos, ggplot2
 Suggest: RColorBrewer
 Description: More about what it does (maybe more than one line)
