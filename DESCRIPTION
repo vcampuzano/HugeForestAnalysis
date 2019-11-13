@@ -1,7 +1,7 @@
 Package: HugeForestAnalysis
 Type: Package
 Title: Procesador de catálogos LiDAR grandes con LidR
-Version: 1.0
+Version: 1.1
 Date: 2019-11-12
 Author: Víctor Manuel Campuzano Pineda
 Maintainer: Víctor M. Campuzano <victorcpkc@gmail.com>
