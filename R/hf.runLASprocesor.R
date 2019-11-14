@@ -6,7 +6,7 @@ function(path=".", threads=2, chunk_size=512, projcrs=CRS("+init=epsg:32616"), r
     
     fld<-hf.initialize(section, path=path, clean=TRUE, showMsg=showMsg)
     
-    hf.standarize(section, projcrs, path=path, cleanSrc=TRUE, showMsg=showMsg, reclassify=reclassify)
+    hf.standarize(section, projcrs, path=path, cleanSrc=TRUE, chunk_size=chunk_size, showMsg=showMsg, reclassify=reclassify)
     gc()
     
     hf.normalize(section, projcrs, path=path, showMsg=showMsg)
