@@ -13,7 +13,7 @@ function(section, projcrs, path=".", bcolor=terrain.colors(10), pdfMap=TRUE, pdf
   if(showMsg) message("  Guardando tif")
   writeRaster(canopyRaster, paste(filename, "tif", sep="."),"GTiff", overwrite=TRUE)
   if(showMsg) message("  Guardando mapa PDF")
-  if(pdfMap) hr.write.rasterPDFmap(canopyRaster, filename, "Modelo digital\r\nde dosel", bcolor=bcolor)
+  if(pdfMap) hf.write.rasterPDFmap(canopyRaster, filename, "Modelo digital\r\nde dosel", bcolor=bcolor)
   if(showMsg) message("  Guardando histograma PDF")
-  if(pdfHist) hr.write.rasterPDFhistogram(canopyRaster, filename, "Modelo digital de dosel (m)", bcolor=bcolor)
+  if(pdfHist) hf.write.rasterPDFhistogram(canopyRaster, filename, "Modelo digital de dosel (m)", bcolor=bcolor)
 }

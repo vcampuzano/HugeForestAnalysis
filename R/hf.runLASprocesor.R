@@ -18,5 +18,6 @@ function(path=".", threads=2, chunk_size=512, projcrs=CRS("+init=epsg:32616"), r
     gc()
     
     hf.clipForest(section, projcrs, fsp, path=path, showMsg=showMsg) #readOGR(fld, paste(section, "Poligonos forestales", sep="_"))
+    
   }
 }

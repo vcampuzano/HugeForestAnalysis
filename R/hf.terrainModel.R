@@ -14,7 +14,7 @@ function(section, projcrs, path=".", bcolor=terrain.colors(10), pdfMap=TRUE, pdf
   if(showMsg) message("  Guardando tif")
   writeRaster(terrainRaster, paste(filename, "tif", sep="."),"GTiff", overwrite=TRUE)
   if(showMsg) message("  Guardando mapa PDF")
-  if(pdfMap) hr.write.rasterPDFmap(terrainRaster, filename, "Modelo digital\r\nde terreno", bcolor=bcolor)
+  if(pdfMap) hf.write.rasterPDFmap(terrainRaster, filename, "Modelo digital\r\nde terreno", bcolor=bcolor)
   if(showMsg) message("  Guardando histograma PDF")
-  if(pdfHist) hr.write.rasterPDFhistogram(terrainRaster, filename, "Modelo digital de terreno (m)", bcolor=bcolor)
+  if(pdfHist) hf.write.rasterPDFhistogram(terrainRaster, filename, "Modelo digital de terreno (m)", bcolor=bcolor)
 }
