@@ -5,6 +5,5 @@ function(path=".", threads=2, projcrs=CRS("+init=epsg:32616"), pdfMap=TRUE, pdfH
   for(section in sectionList[2:length(sectionList)]){
     hf.terrainModel(section, projcrs, path=path, pdfMap=pdfMap, showMsg=showMsg)
     hf.canopyHeightModel(section, projcrs, path=path, pdfHist=pdfHist, showMsg=showMsg)
-    hf.forestCanopyHeightModel(section, projcrs, path=path, pdfHist=pdfHist, showMsg=showMsg)
   }
 }
