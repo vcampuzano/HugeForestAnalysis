@@ -1,5 +1,5 @@
 hf.terrainModel <-
-function(section, projcrs, path=".", bcolor=terrain.colors(10), pdfMap=TRUE, pdfHist=TRUE, showMsg=FALSE){
+function(section, projcrs, path=".", bcolor=terrain.colors(10), pdfMap=FALSE, pdfHist=FALSE, showMsg=FALSE){
   if(showMsg) message(paste("Generando MDT", section, "... "))
   fld=paste(path, section, sep="/")
   ctg=readLAScatalog(paste(fld, "std", sep="/"))

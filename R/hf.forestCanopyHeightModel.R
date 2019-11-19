@@ -1,6 +1,6 @@
 hf.forestCanopyHeightModel <-
-  function(section, projcrs, path=".", bcolor=terrain.colors(10), pdfMap=TRUE, pdfHist=TRUE, showMsg=FALSE){
-    if(showMsg) message(paste("Generando CHM", section, "... "))
+  function(section, projcrs, path=".", bcolor=terrain.colors(10), pdfMap=FALSE, pdfHist=FALSE, showMsg=FALSE){
+    if(showMsg) message(paste("Generando CHMF", section, "... "))
     fld=paste(path, section, sep="/")
     ctg=readLAScatalog(paste(fld, "forest", sep="/"))
     nCores=as.integer(availableCores()/get_lidr_threads())
@@ -9,7 +9,7 @@ hf.forestCanopyHeightModel <-
     canopyRaster=grid_canopy(ctg, 0.5, algorithm =  p2r(0, na.fill=knnidw()))
     plan(sequential)
     projection(canopyRaster)<-projcrs
-    filename=paste(fld, paste(section, "CHM", sep="_"), sep="/")
+    filename=paste(fld, paste(section, "CHMF", sep="_"), sep="/")
     if(showMsg) message("  Guardando tif")
     writeRaster(canopyRaster, paste(filename, "tif", sep="."),"GTiff", overwrite=TRUE)
     if(showMsg) message("  Guardando mapa PDF")

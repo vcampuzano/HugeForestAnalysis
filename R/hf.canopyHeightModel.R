@@ -1,5 +1,5 @@
 hf.canopyHeightModel <-
-function(section, projcrs, path=".", bcolor=terrain.colors(10), pdfMap=TRUE, pdfHist=TRUE, showMsg=FALSE){
+function(section, projcrs, path=".", bcolor=terrain.colors(10), pdfMap=FALSE, pdfHist=FALSE, showMsg=FALSE){
   if(showMsg) message(paste("Generando CHM", section, "... "))
   fld=paste(path, section, sep="/")
   ctg=readLAScatalog(paste(fld, "nrm", sep="/"))
