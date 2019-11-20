@@ -18,9 +18,9 @@ function(section, projcrs, path=".", cleanSrc=FALSE, showMsg=FALSE, ...){
   plan(multisession, workers=nCores)
   if(!is.null(trr)){
     if(showMsg) message(paste("  Normalizando con MDT",trrTif[1]))
-    lasnormalize(ctg, trr, na.rm=TRUE)
+    lasnormalize(ctg, trr, na.rm=FALSE)
   } else {
-    lasnormalize(ctg, knnidw(), na.rm=TRUE)
+    lasnormalize(ctg, knnidw(), na.rm=FALSE)
   }
   plan(sequential)
   if(cleanSrc){
