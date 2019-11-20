@@ -1,8 +1,8 @@
 hf.runLASprocesor <-
 function(path=".", threads=2, chunk_size=512, projcrs=CRS("+init=epsg:32616"), reclassify=c(), showMsg=TRUE){
   set_lidr_threads(threads)
-  sectionList<-list.dirs(path, full.names=FALSE)
-  for(section in sectionList[2:length(sectionList)]){
+  sectionList<-list.dirs(path, full.names=FALSE, recursive=FALSE)
+  for(section in sectionList[1:length(sectionList)]){
     
     fld<-hf.initialize(section, path=path, clean=TRUE, showMsg=showMsg)
     

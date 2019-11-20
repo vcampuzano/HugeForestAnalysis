@@ -7,8 +7,15 @@ function(section, projcrs, path=".", cleanSrc=FALSE, showMsg=FALSE, ...){
   projection(ctg)<-projcrs
   nCores=as.integer(availableCores()/get_lidr_threads())
   if(showMsg) message(paste("  Multisession en", nCores, "nucleos con", get_lidr_threads(), "hilos"))
+  trrTif<-list.files(fld, "*.tif")
   plan(multisession, workers=nCores)
-  lasnormalize(ctg, knnidw(), na.rm=TRUE)
+  if(length(trrTif)>0){
+    if(showMsg) message(paste("  Normalizando con MDT",trrTif[1]))
+    trr<-raster(paste(fld, trrTif[1], sep="/"))
+    lasnormalize(ctg, trr, na.rm=TRUE)
+  } else {
+    lasnormalize(ctg, knnidw(), na.rm=TRUE)
+  }
   plan(sequential)
   if(cleanSrc){
     if(showMsg) message("  Eliminado archivos de origen")
