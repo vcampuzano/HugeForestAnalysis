@@ -11,6 +11,7 @@ function(section, projcrs, path=".", cleanSrc=FALSE, showMsg=FALSE, ...){
     opt_filter(ctg)<-paste("-keep_xy", trrBox[1,1], trrBox[2,1], trrBox[1,2], trrBox[2,2])
   }
   opt_output_files(ctg)<-paste(fld, "nrm", "{ORIGINALFILENAME}", sep="/")
+  opt_chunk_buffer(ctg)<-0
   projection(ctg)<-projcrs
   nCores=as.integer(availableCores()/get_lidr_threads())
   if(showMsg) message(paste("  Multisession en", nCores, "nucleos con", get_lidr_threads(), "hilos"))
