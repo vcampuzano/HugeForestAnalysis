@@ -3,6 +3,7 @@ function(section, projcrs, path=".", bcolor=terrain.colors(10), pdfMap=FALSE, pd
   if(showMsg) message(paste("Generando CHM", section, "... "))
   fld=paste(path, section, sep="/")
   ctg=readLAScatalog(paste(fld, "nrm", sep="/"))
+  opt_filter(ctg)<-"-drop_z_above 75"
   nCores=as.integer(availableCores()/get_lidr_threads())
   if(showMsg) message(paste("  Multisession en", nCores, "nucleos con", get_lidr_threads(), "hilos"))
   plan(multisession, workers=nCores)

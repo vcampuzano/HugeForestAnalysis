@@ -1,5 +1,5 @@
 lasStandarization.LAS <-
-function(las, density=20, denoise=TRUE, reclassify=c(), ...){
+function(las, density=0.5, denoise=TRUE, reclassify=c(), ...){
   if(denoise){
     las <- lasDenoising.LAS(las, ...)
     gc();

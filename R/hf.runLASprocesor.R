@@ -1,5 +1,5 @@
 hf.runLASprocesor <-
-function(path=".", threads=2, chunk_size=512, projcrs=CRS("+init=epsg:32616"), reclassify=c(), showMsg=TRUE){
+function(path=".", threads=2, chunk_size=512, projcrs=CRS("+init=epsg:32616"), reclassify=c(), pclump=0.6, showMsg=TRUE){
   set_lidr_threads(threads)
   sectionList<-list.dirs(path, full.names=FALSE, recursive=FALSE)
   for(section in sectionList[1:length(sectionList)]){
@@ -12,7 +12,7 @@ function(path=".", threads=2, chunk_size=512, projcrs=CRS("+init=epsg:32616"), r
     hf.normalize(section, projcrs, path=path, showMsg=showMsg)
     gc()
     
-    fsp<-hf.forestSPmask(section, projcrs, path=path, holes_area=5000, crumbs_area=8000, showMsg=showMsg)
+    fsp<-hf.forestSPmask(section, projcrs, path=path, holes_area=5000, crumbs_area=8000, pclump=pclump, showMsg=showMsg)
     if(showMsg) message("Guardando polígonos forestales...")
     writeOGR(fsp, fld, paste(section, "Poligonos forestales", sep="_"), driver="ESRI Shapefile")
     gc()

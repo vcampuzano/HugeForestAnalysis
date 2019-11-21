@@ -4,6 +4,7 @@ function(section, projcrs, forest.sp, path=".", cleanSrc=FALSE, showMsg=FALSE){
   fld=paste(path, section, sep="/")
   ctg=readLAScatalog(paste(fld, "nrm", sep="/"))
   opt_output_files(ctg)<-paste(fld, "forest", "{ORIGINALFILENAME}", sep="/")
+  opt_filter(ctg)<-"-drop_z_above 25"
   projection(ctg)<-projcrs
   nCores=as.integer(availableCores()/get_lidr_threads())
   if(showMsg) message(paste("  Multisession en", nCores, "nucleos con", get_lidr_threads(), "hilos"))
