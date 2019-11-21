@@ -8,7 +8,7 @@ function(section, projcrs, path=".", height=2, res=5, pclump=75, holes_area=7500
   nCores=as.integer(availableCores())
   if(showMsg) message(paste("  Multisession en", nCores, "nucleos"))
   plan(multisession, workers=nCores)
-  grid.pzabove2=grid_metrics(ctg, pzabovex(Z, th=2), res=5)#th=height), res=res)
+  grid.pzabove2=grid_metrics(ctg, .pzabovex(Z, th=2), res=5)#th=height), res=res)
   plan(sequential)
   if(showMsg) message(paste("  Creando polígono a corte de", height, "m ..."))
   forest.sp=raster::rasterToPolygons(clump(grid.pzabove2>pclump), dissolve = TRUE)
