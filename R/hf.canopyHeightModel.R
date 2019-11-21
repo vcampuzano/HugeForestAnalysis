@@ -7,7 +7,7 @@ function(section, projcrs, path=".", bcolor=terrain.colors(10), pdfMap=FALSE, pd
   nCores=as.integer(availableCores()/get_lidr_threads())
   if(showMsg) message(paste("  Multisession en", nCores, "nucleos con", get_lidr_threads(), "hilos"))
   plan(multisession, workers=nCores)
-  canopyRaster=grid_canopy(ctg, 0.5, algorithm = lidR::pitfree())
+  canopyRaster=grid_canopy(ctg, 0.5, algorithm = lidR::p2r())
   plan(sequential)
   projection(canopyRaster)<-projcrs
   filename=paste(fld, paste(section, "CHM", sep="_"), sep="/")
