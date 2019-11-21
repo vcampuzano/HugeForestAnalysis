@@ -4,7 +4,7 @@ function(las, density=20, denoise=TRUE, reclassify=c(), ...){
     las <- lasDenoising.LAS(las, ...)
     gc();
   }
-  las <- lasfilterdecimate(las, homogenize(density, use_pulse=TRUE,res=0.5))
+  #las <- lasfilterdecimate(las, homogenize(density, use_pulse=TRUE,res=0.5))
   if(length(reclassify)>0){
     reclassify <- matrix(reclassify, ncol=2)
     for(n in 1:nrow(reclassify)) 
