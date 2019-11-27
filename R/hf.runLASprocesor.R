@@ -14,7 +14,7 @@ function(path=".", threads=2, chunk_size=512, projcrs=CRS("+init=epsg:32616"), r
     
     fsp<-hf.forestSPmask(section, projcrs, path=path, holes_area=5000, crumbs_area=8000, pclump=pclump, showMsg=showMsg)
     if(showMsg) message("Guardando polígonos forestales...")
-    writeOGR(fsp, fld, paste(section, "Poligonos forestales", sep="_"), driver="ESRI Shapefile")
+    writeOGR(fsp, fld, paste(section, "Polígonos forestales", sep="_"), driver="ESRI Shapefile")
     gc()
     
     hf.clipForest(section, projcrs, fsp, path=path, showMsg=showMsg) #readOGR(fld, paste(section, "Poligonos forestales", sep="_"))

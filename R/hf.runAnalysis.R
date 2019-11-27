@@ -7,7 +7,7 @@ function(path=".", threads=2, projcrs=CRS("+init=epsg:32616"), pdfMap=FALSE, pdf
     chm<-raster(paste(path, section, paste(section, "CHM.tif", sep="_"), sep="/"))
     chm<-clamp(chm, lower=0, upper=62, filename=paste(path, section, paste(section, "CHMclamp.tif", sep="_"), sep="/"))
     #chm<-raster(paste(path, section, paste(section, "CHMclamp.tif", sep="_"), sep="/"))
-    fsp<-readOGR(paste(path, section, sep="/"), paste(section, "Poligonos forestales", sep="_"))
+    fsp<-readOGR(paste(path, section, sep="/"), paste(section, "Polígonos forestales", sep="_"))
     chm<-mask(chm, fsp, filename=paste(path, section, paste(section, "MEC.tif", sep="_"), sep="/"))
   }
 }
